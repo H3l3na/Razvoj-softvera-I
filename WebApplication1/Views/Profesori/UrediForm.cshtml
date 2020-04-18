@@ -1,0 +1,223 @@
+﻿@*<link rel="stylesheet" href="~/css/Uređivanje/UrediProfesor.css" />*@
+<link rel="stylesheet" href="~/css/Uređivanje/UredjivanjeProfesori.css" />
+@{
+    Profesor podaci = (Profesor)ViewData["uredi"];
+}
+
+<h2 style="font-family:Consolas">Uredi podatke profesora</h2>
+@*
+<form action="/Profesori/Uredi">
+    <center>
+        <table>
+            <tr>
+                <input hidden="hidden" name="id" value="@podaci.ProfesorID" />
+            </tr>
+            <tr>
+                <td>
+                    <label>Ime</label>
+                </td>
+                <td>
+                    <input id="ime_" type="text" readonly="readonly" name="ime" value="@podaci.Ime" class="form-control-plaintext"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Prezime</label>
+                </td>
+                <td>
+                    <input id="prezime_" type="text" readonly="readonly" name="prezime" value="@podaci.Prezime" class="form-control-plaintext"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Zvanje</label>
+                </td>
+                <td>
+                    <input type="text" value="@podaci.Zvanje" name="zvanje" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Mail</label>
+                </td>
+                <td>
+                    <input type="text" value="@podaci.Mail" name="mail" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Datum rođenja</label>
+                </td>
+                <td>
+                    <input type="datetime" value="@podaci.Datum_Rodjenja" name="datum_rodjenja" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Datum zaposlenja</label>
+                </td>
+                <td>
+                    <input name="datum_zaposlenja" type="datetime" value="@podaci.Datum_Zaposlenja" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Adresa</label>
+                </td>
+                <td>
+                    <input type="text" value="@podaci.Adresa" name="adresa" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Telefon</label>
+                </td>
+                <td>
+                    <input type="text" value="@podaci.Telefon" name="telefon" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Spol</label>
+                </td>
+                <td>
+                    <select name="spol" class="form-control">
+                        <option value="@podaci.Spol">@podaci.Spol</option>
+                        <option disabled="disabled">--</option>
+                        <option value="M">M</option>
+                        <option value="Ž">Ž</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Staž</label>
+                </td>
+                <td>
+                    <input type="text" value="@podaci.Staz" name="staz" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Stalan zaposlenik</label>
+                </td>
+                <td>
+                    <select name="stalan_zaposlenik" class="form-control">
+                        <option value="@podaci.Stalan_Zaposlenik">@podaci.Stalan_Zaposlenik</option>
+                        <option disabled="disabled">----</option>
+                        <option value="DA">DA</option>
+                        <option value="NE">NE</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Kancelarija</label>
+                </td>
+                <td>
+                    <select name="kancelarija" class="form-control">
+                        <option>@podaci.Kancelarija</option>
+                        <option disabled="disabled">-------------------</option>
+                        <option>Kancelarija 1</option>
+                        <option>Kancelarija 2</option>
+                        <option>Kancelarija 3</option>
+                        <option>Kancelarija 4</option>
+                        <option>Kancelarija 5</option>
+                        <option>Kancelarija 6</option>
+                        <option>Kancelarija 7</option>
+                        <option>Kancelarija 8</option>
+                        <option>Kancelarija 9</option>
+                        <option>Kancelarija 10</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <button id="go" type="submit" class="btn btn-primary">Snimi</button>
+        <a id="back" class="btn btn-default" href="/Profesori/Prikaz">Nazad</a>
+    </center>
+</form>*@
+
+<center>
+    <form style="font-family:Consolas" asp-controller="Profesori" asp-action="Uredi" id="forma">
+        <input hidden="hidden" name="id" value="@podaci.ProfesorID" />
+        <div class="form-group">
+            <label>Ime</label>
+            <input id="ime_" type="text" readonly="readonly" name="ime" value="@podaci.Ime" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Prezime</label>
+            <input id="prezime_" type="text" readonly="readonly" name="prezime" value="@podaci.Prezime" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Zvanje</label>
+            <input type="text" value="@podaci.Zvanje" name="zvanje" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Mail</label>
+            <input type="text" value="@podaci.Mail" name="mail" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Datum rođenja</label>
+            <input type="date" value="@podaci.Datum_Rodjenja" name="datum_rodjenja" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Datum zaposlenja</label>
+            <input name="datum_zaposlenja" type="date" value="@podaci.Datum_Zaposlenja" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Adresa</label>
+            <input type="text" value="@podaci.Adresa" name="adresa" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Telefon</label>
+            <input type="text" value="@podaci.Telefon" name="telefon" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Spol</label>
+            <select name="spol" class="form-control">
+                <option value="@podaci.Spol">@podaci.Spol</option>
+                <option disabled="disabled">--</option>
+                <option value="M">M</option>
+                <option value="Ž">Ž</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Staž</label>
+            <input type="text" value="@podaci.Staz" name="staz" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Stalan zaposlenik</label>
+            <select name="stalan_zaposlenik" class="form-control">
+                <option value="@podaci.Stalan_Zaposlenik">@podaci.Stalan_Zaposlenik</option>
+                <option disabled="disabled">----</option>
+                <option value="DA">DA</option>
+                <option value="NE">NE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Kancelarija</label>
+            <select name="kancelarija" class="form-control">
+                <option>@podaci.Kancelarija</option>
+                <option disabled="disabled">-------------------</option>
+                <option>Kancelarija 1</option>
+                <option>Kancelarija 2</option>
+                <option>Kancelarija 3</option>
+                <option>Kancelarija 4</option>
+                <option>Kancelarija 5</option>
+                <option>Kancelarija 6</option>
+                <option>Kancelarija 7</option>
+                <option>Kancelarija 8</option>
+                <option>Kancelarija 9</option>
+                <option>Kancelarija 10</option>
+            </select>
+        </div>
+        <button id="go" type="submit" class="btn btn-primary">Snimi</button>
+        <a id="back" class="btn btn-default" href="/Profesori/Prikaz">Nazad</a>
+    </form>
+</center>

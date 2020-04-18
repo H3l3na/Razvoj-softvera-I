@@ -1,0 +1,18 @@
+﻿body {
+    background-color: lightblue;
+}
+
+
+#forma {
+    width: 30%;
+}
+
+input {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 5%;
+}

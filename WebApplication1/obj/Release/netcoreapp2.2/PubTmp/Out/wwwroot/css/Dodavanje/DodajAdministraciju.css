@@ -1,0 +1,31 @@
+﻿/*label, input {
+    margin: 3%;
+}
+
+#go, #back {
+    width: 30%;
+    margin-right: 3%;
+}
+
+input {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 5%;
+}*/
+
+body {
+    background-color: lightblue;
+}
+
+
+#forma {
+    width: 30%;
+}
+
+input {
+    text-align: center;
+}

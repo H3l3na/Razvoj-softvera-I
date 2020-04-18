@@ -1,0 +1,290 @@
+﻿<link rel="stylesheet" href="~/css/Dodavanje/DodajPolaznika.css" />
+@model WebApplication1.Models.VM.PolaznikDodajVM
+@{
+    ViewData["Title"] = "DodajNovog";
+}
+
+<br />
+<br />
+<br />
+<h2 style="text-align:center; font-family:Consolas">Unesite podatke o novom polazniku:</h2>
+<br />
+<br />
+
+@*
+    <center>
+        <form asp-controller="Polaznici" asp-action="SnimiNovog">
+            <table>
+                <tr>
+                    <td><label>Ime</label></td>
+                    <td><input type="text" asp-for="Ime" class="form-control"/>
+                    <span asp-validation-for="Ime" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Prezime</label></td>
+                    <td>
+                        <input type="text" asp-for="Prezime" class="form-control"/>
+                        <span asp-validation-for="Prezime" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Mail</label></td>
+                    <td>
+                        <input type="text" asp-for="Mail" class="form-control"/>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <span asp-validation-for="Mail" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Datum rođenja</label></td>
+                    <td>
+                        <input type="date" asp-for="Datum_Rodjenja" class="form-control"/>
+                        <span asp-validation-for="Datum_Rodjenja" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Adresa</label></td>
+                    <td>
+                        <input type="text" asp-for="Adresa" class="form-control"/>
+                        <span asp-validation-for="Adresa" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Telefon</label></td>
+                    <td>
+                        <input type="text" asp-for="Telefon" class="form-control"/>
+                        <span asp-validation-for="Telefon" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Spol</label>
+
+                    </td>
+                    <td>
+                        <select asp-for="Spol" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="M">M</option>
+                        <option value="Ž">Ž</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Indeks</label></td>
+                    <td>
+                        <input type="text" asp-for="Broj_Dosijea" class="form-control"/>
+                        <span asp-validation-for="Broj_Dosijea" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Status</label></td>
+                    <td>
+                        <select asp-for="Status" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="Aktivan">Aktivan</option>
+                        <option value="Neaktivan">Neaktivan</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Način studiranja</label></td>
+                    <td>
+                        <select asp-for="Nacin_Studiranja" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="IN-CLASS">IN-CLASS</option>
+                        <option value="DL">DL</option>
+                        <option value="Vanredan">Vanredan</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Upisani semestar</label></td>
+                    <td>
+                        <select asp-for="Upisan_Semestar" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Ovjereni semestar</label></td>
+                    <td>
+                        <select type="text" asp-for="Ovjeren_Semestar" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Godina upisa</label></td>
+                    <td>
+                        <input type="text" asp-for="Godina_Upisa" class="form-control"/>
+                        <span asp-validation-for="Godina_Upisa" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Godina studija</label></td>
+                    <td>
+                        <select asp-for="Godina_Studija" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Obnavlja</label></td>
+                    <td>
+                        <select asp-for="Obnavlja_Godinu" class="form-control"/>
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="DA">DA</option>
+                        <option value="NE">NE</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Prosječna ocjena</label></td>
+                    <td>
+                        <input type="text" asp-for="Prosjecna_Ocjena" class="form-control"/>
+                        <span asp-validation-for="Prosjecna_Ocjena" class="text-danger"></span>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <button type="submit" value="SnimiNovog" id="go" class="btn btn-primary">Snimi</button>
+            <a id="back" class="btn btn-default" href="/Polaznici/Prikaz">Nazad</a>
+        </form>
+        <br />
+    </center>
+*@
+
+<center>
+    <form asp-controller="Polaznici" asp-action="SnimiNovog" id="forma">
+        <div class="form-group">
+            <label>Ime</label>
+            <input type="text" asp-for="Ime" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Prezime</label>
+            <input type="text" asp-for="Prezime" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Mail</label>
+            <input type="text" asp-for="Mail" class="form-control" />
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label>Datum rođenja</label>
+            <input type="date" asp-for="Datum_Rodjenja" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Adresa</label>
+            <input type="text" asp-for="Adresa" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Telefon</label>
+            <input type="text" asp-for="Telefon" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Spol</label>
+            <select asp-for="Spol" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="M">M</option>
+                <option value="Ž">Ž</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Indeks</label>
+            <input type="text" asp-for="Broj_Dosijea" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <select asp-for="Status" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="Aktivan">Aktivan</option>
+                <option value="Neaktivan">Neaktivan</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Način studiranja</label>
+            <select asp-for="Nacin_Studiranja" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="IN-CLASS">IN-CLASS</option>
+                <option value="DL">DL</option>
+                <option value="Vanredan">Vanredan</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Upisani semestar</label>
+            <select asp-for="Upisan_Semestar" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Ovjereni semestar</label>
+            <select type="text" asp-for="Ovjeren_Semestar" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Godina upisa</label>
+            <input type="text" asp-for="Godina_Upisa" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Godina studija</label>
+            <select asp-for="Godina_Studija" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Obnavlja</label>
+            <select asp-for="Obnavlja_Godinu" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="DA">DA</option>
+                <option value="NE">NE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Prosječna ocjena</label>
+            <input type="text" asp-for="Prosjecna_Ocjena" class="form-control" />
+        </div>
+        <button type="submit" value="SnimiNovog" id="go" class="btn btn-primary">Snimi</button>
+        <a id="back" class="btn btn-default" href="/Polaznici/Prikaz">Nazad</a>
+    </form>
+</center>

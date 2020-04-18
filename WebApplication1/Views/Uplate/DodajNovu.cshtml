@@ -1,0 +1,133 @@
+﻿<link rel="stylesheet" href="~/css/Dodavanje/DodajUplata.css" />
+@model WebApplication1.Models.VM.UplataDodajVM
+@{
+    ViewData["Title"] = "DodajNovu";
+}
+
+<br />
+<br />
+<br />
+<h2 style="text-align:center; font-family:Consolas">Unesite podatke o uplati:</h2>
+<br />
+<br />
+
+@*
+<center>
+    <form asp-controller="Uplate" asp-action="SnimiNovu" style="text-align:center" id="forma">
+        <table>
+            <tr>
+                <td><label>Svrha</label></td>
+                <td>
+                    <input type="text" asp-for="Svrha" class="form-control" />
+                    <span asp-validation-for="Svrha" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Iznos</label></td>
+                <td>
+                    <input type="text" asp-for="Iznos" class="form-control" />
+                    <span asp-validation-for="Iznos" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Datum uplate</label></td>
+                <td>
+                    <input type="datetime-local" asp-for="Datum_Uplate" class="form-control" />
+                    <span asp-validation-for="Datum_Uplate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Ovjereno</label></td>
+                <td>
+                    <select asp-for="Ovjereno" class="form-control">
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        <option value="DA">DA</option>
+                        <option value="NE">NE</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Polaznik</label></td>
+                <td>
+                    <select asp-for="PolaznikID" class="form-control">
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        @foreach (var x in Model.polaznici)
+                        {
+                            <option value="@x.Value">@x.Text</option>
+                        }
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td><label>Evidentirao</label></td>
+                <td>
+                    <select asp-for="AdministracijaID" class="form-control">
+                        <option>---Odaberite---</option>
+                        <option disabled="disabled">---------------</option>
+                        @foreach (var x in Model.administratori)
+                        {
+                            <option value="@x.Value">@x.Text</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <button id="go" class="btn btn-primary" value="SnimiNovu" type="submit">Snimi</button>
+        <a id="back" class="btn btn-default" href="/Uplate/PrikaziUplate">Nazad</a>
+    </form>
+</center>*@
+
+<center>
+    <form asp-controller="Uplate" asp-action="SnimiNovu" style="text-align:center" id="forma">
+        <div class="form-group">
+            <label>Svrha</label>
+            <input type="text" asp-for="Svrha" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Iznos</label>
+            <input type="text" asp-for="Iznos" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Datum uplate</label>
+            <input type="datetime-local" asp-for="Datum_Uplate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Ovjereno</label>
+            <select asp-for="Ovjereno" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                <option value="DA">DA</option>
+                <option value="NE">NE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Polaznik</label>
+            <select asp-for="PolaznikID" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                @foreach (var x in Model.polaznici)
+                {
+                    <option value="@x.Value">@x.Text</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Evidentirao jeee</label>
+            <select asp-for="AdministracijaID" class="form-control">
+                <option>---Odaberite---</option>
+                <option disabled="disabled">---------------</option>
+                @foreach (var x in Model.administratori)
+                {
+                    <option value="@x.Value">@x.Text</option>
+                }
+            </select>
+        </div>
+        <button id="go" class="btn btn-primary" value="SnimiNovu" type="submit">Snimi</button>
+        <a id="back" class="btn btn-default" href="/Uplate/PrikaziUplate">Nazad</a>
+    </form>
+</center>
+

@@ -1,0 +1,49 @@
+﻿<link rel="stylesheet" href="~/css/Uređivanje/Pozadina.css" />
+<link rel="stylesheet" href="~/css/Uređivanje/UrediKurs.css" />
+@model WebApplication1.Models.VM.UrediKursVM
+@{
+    ViewData["Title"] = "UrediKurs";
+}
+
+<br />
+<br />
+<br />
+<center>
+    <h2 style="font-family:Consolas">Uredite podatke o kursu @Model.Naziv</h2>
+    <br />
+    <br />
+    <form asp-controller="Kursevi" asp-action="SnimiUpdate" style="font-family:Consolas" id="forma">
+        <input type="hidden" name="KursID" value="@Model.KursID" />
+        <div class="form-group">
+            <label>Naziv:</label>
+            <input type="text" name="Naziv" value="@Model.Naziv" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Studijski program:</label>
+            <input type="text" name="StudijskiProgram" value="@Model.StudijskiProgram" readonly="readonly" id="_sp" class="form-control"/>
+            <input type="hidden" name="StudijskiProgramID" value="@Model.StudijskiProgramID" />
+        </div>
+        <div class="form-group">
+            <label>ECTS:</label>
+            <input type="text" name="ECTS" value="@Model.ECTS" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Cijena:</label>
+            <input type="text" name="Cijena" value="@Model.Cijena" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Trajanje:</label>
+            <input type="text" name="Trajanje" value="@Model.Trajanje" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Trazenost:</label>
+            <input type="text" name="Trazenost" value="@Model.Trazenost" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Cilj:</label>
+            <input type="text" name="Cilj" value="@Model.Cilj" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary" value="SnimiUpdate">Snimi</button>
+        <a href="/Kursevi/Kursevi" class="btn btn-default" >Nazad</a>
+    </form>
+</center>

@@ -1,0 +1,128 @@
+﻿@*<link rel="stylesheet" href="~/css/Uređivanje/UrediUplata.css" />*@
+<link rel="stylesheet" href="~/css/Uređivanje/UredjivanjeUplate.css" />
+@using WebApplication1.Models.VM
+@model UrediFormVM
+@{
+    Uplata podaci = (Uplata)ViewData["Uredi"];
+}
+
+<h2 style="font-family:Consolas">Uredi podatke uplate</h2>
+@*
+    <center>
+
+        <form action="/Uplate/Uredi">
+            <input type="text" name="id" value="@podaci.UplataID" hidden="hidden" />
+            <table>
+                <tr>
+                    <td>
+                        <label>Svrha</label>
+                    </td>
+                    <td>
+                        <input name="svrha" type="text" value="@podaci.Svrha" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Iznos</label>
+                    </td>
+                    <td>
+                        <input name="iznos" type="text" value="@podaci.Iznos" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Datum uplate</label>
+                    </td>
+                    <td>
+                        <input name="datum_uplate" type="datetime" value="@podaci.Datum_uplate" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Ovjereno</label>
+                    </td>
+                    <td>
+                        <select name="ovjereno" class="form-control">
+                            <option value=@podaci.Ovjereno>@podaci.Ovjereno</option>
+                            <option disabled="disabled">----</option>
+                            <option value="DA">DA</option>
+                            <option value="NE">NE</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Polaznik</label>
+                    </td>
+                    <td>
+                        <input type="text" readonly="readonly" name="polaznik" value="@podaci.Polaznik_ID_FK" hidden="hidden" />
+                        <input type="text" readonly="readonly" value="@podaci.Polaznik_ID.Ime @podaci.Polaznik_ID.Prezime" class="form-control"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="adminName">Administracija</label>
+                    </td>
+                    <td>
+                        <select name="administracija" class="form-control">
+                            <option value="@podaci.Administracija_ID_FK">@podaci.Administracija_ID.Ime @podaci.Administracija_ID.Prezime</option>
+                            <option disabled="disabled">----------------------</option>
+                            @foreach (var x in Model.listaAdministracije)
+                            {
+                                <option value="@x.AdministracijaID">@x.Ime @x.Prezime</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <button id="go" class="btn btn-primary" type="submit">Snimi</button>
+            <a id="back" class="btn btn-default" href="/Uplate/PrikaziUplate">Nazad</a>
+        </form>
+    </center>*@
+
+<center>
+    <form style="font-family:Consolas" asp-controller="Uplate" asp-action="Uredi" id="forma">
+        <input type="text" name="id" value="@podaci.UplataID" hidden="hidden" />
+        <div class="form-group">
+            <label>Svrha</label>
+            <input name="svrha" type="text" value="@podaci.Svrha" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Iznos</label>
+            <input name="iznos" type="text" value="@podaci.Iznos" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Datum uplate</label>
+            <input name="datum_uplate" type="date" value="@podaci.Datum_uplate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Ovjereno</label>
+            <select name="ovjereno" class="form-control">
+                <option value=@podaci.Ovjereno>@podaci.Ovjereno</option>
+                <option disabled="disabled">----</option>
+                <option value="DA">DA</option>
+                <option value="NE">NE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Polaznik</label>
+            <input type="text" readonly="readonly" name="polaznik" value="@podaci.Polaznik_ID_FK" hidden="hidden" />
+            <input type="text" readonly="readonly" value="@podaci.Polaznik_ID.Ime @podaci.Polaznik_ID.Prezime" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label id="adminName">Administracija</label>
+            <select name="administracija" class="form-control">
+                <option value="@podaci.Administracija_ID_FK">@podaci.Administracija_ID.Ime @podaci.Administracija_ID.Prezime</option>
+                <option disabled="disabled">----------------------</option>
+                @foreach (var x in Model.listaAdministracije)
+                {
+                    <option value="@x.AdministracijaID">@x.Ime @x.Prezime</option>
+                }
+            </select>
+        </div>
+        <button id="go" class="btn btn-primary" type="submit">Snimi</button>
+        <a id="back" class="btn btn-default" href="/Uplate/PrikaziUplate">Nazad</a>
+    </form>
+</center>
